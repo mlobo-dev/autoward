@@ -1,0 +1,101 @@
+{
+  "id": "secure-agents",
+  "realm": "secure-agents",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "DevOps",
+        "description": "Role with full infrastructure control"
+      },
+      {
+        "name": "Developer",
+        "description": "Role with limited dev namespace control"
+      },
+      {
+        "name": "Viewer",
+        "description": "Read-only access"
+      }
+    ]
+  },
+  "groups": [],
+  "clients": [
+    {
+      "clientId": "execution-layer",
+      "name": "Execution Layer Proxy",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "very-secret-key-123",
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "protocolMappers": [
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "user.attribute": "foo",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "realm_access.roles",
+            "jsonType.label": "String"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "agent-devops",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Agent",
+      "lastName": "DevOps",
+      "email": "devops@agent.internal",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["DevOps"],
+      "clientRoles": {
+        "account": ["manage-account", "view-profile"]
+      }
+    },
+    {
+      "username": "agent-dev",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Agent",
+      "lastName": "Developer",
+      "email": "dev@agent.internal",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["Developer"]
+    }
+  ]
+}

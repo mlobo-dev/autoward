@@ -1,0 +1,48 @@
+# Dependency directories
+node_modules/
+dist/
+build/
+.npm/
+
+# Environment variables
+.env
+.env.*
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+.docker/
+
+# Kubernetes
+.kube/
+*.kubeconfig
+
+# Logs
+*.log
+logs/
+
+# OPA
+.opa/
+
+# Database data (if any local volumes)
+pgdata/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local state and POC files
+clawdbot/
+video/
+kube/
+sse.log
+sse_output.txt
+.specify/
+docs/
+prompts/
+scripts/
+backup/
