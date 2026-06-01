@@ -42,7 +42,6 @@ kube/
 sse.log
 sse_output.txt
 .specify/
-docs/
 prompts/
 scripts/
 backup/

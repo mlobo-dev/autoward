@@ -1,0 +1,109 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram id="exekRmTkWSWPNAUUcdpr" name="Page-1">
+    <mxGraphModel dx="1426" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e_allow" value="&lt;b&gt;✓ ALLOW&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2e7d32;strokeWidth=2;fontColor=#2e7d32;fontSize=11;fontStyle=1;endArrow=block;endFill=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770" y="479.5" as="sourcePoint" />
+            <mxPoint x="540" y="481" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="656" y="480" />
+              <mxPoint x="656" y="481" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" value="Auto Ward — Zero-Trust Agent Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" parent="1" vertex="1">
+          <mxGeometry x="20" y="10" width="980" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="L1" value="Layer 1 — Agent Layer" style="swimlane;startSize=30;fillColor=#f3e5f5;strokeColor=#7b1fa2;strokeWidth=2;fontColor=#4a148c;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="64" width="560" height="306" as="geometry" />
+        </mxCell>
+        <mxCell id="agent" value="&lt;b&gt;AI Agent&lt;/b&gt;&lt;br&gt;(e.g., OpenClaw, LLM, n8n)&lt;br&gt;&lt;font color=&#39;#6a1b9a&#39; style=&#39;font-size:10px&#39;&gt;Gera intenções. Sem credenciais de infra.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#7b1fa2;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L1" vertex="1">
+          <mxGeometry x="155" y="46" width="250" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="L2" value="Layer 2 — Proxy Layer" style="swimlane;startSize=30;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=2;fontColor=#0d47a1;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="390" width="560" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="intent" value="&lt;b&gt;Intent Translator&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#1565c0&#39; style=&#39;font-size:10px&#39;&gt;Recebe e parseia o comando&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L2" vertex="1">
+          <mxGeometry x="50" y="55" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="exec" value="&lt;b&gt;Execution Engine&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#1565c0&#39; style=&#39;font-size:10px&#39;&gt;Executa se autorizado&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L2" vertex="1">
+          <mxGeometry x="310" y="55" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L3" value="Layer 3 — Governance Layer" style="swimlane;startSize=30;fillColor=#fff3e0;strokeColor=#e65100;strokeWidth=2;fontColor=#bf360c;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="710" y="290" width="380" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="e_opa_audit" value="Decision" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e65100;strokeWidth=1;fontColor=#e65100;fontSize=10;" parent="L3" source="opa" target="audit" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="keycloak" value="&lt;b&gt;Keycloak (IAM)&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#bf360c&#39; style=&#39;font-size:10px&#39;&gt;Step 1: Validate JWT&lt;br&gt;Identify Agent&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L3" vertex="1">
+          <mxGeometry x="50" y="40" width="280" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="opa" value="&lt;b&gt;OPA Engine&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#bf360c&#39; style=&#39;font-size:10px&#39;&gt;Step 2: Evaluate Rego Policy&lt;br&gt;allow: true / false&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L3" vertex="1">
+          <mxGeometry x="50" y="130" width="280" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="&lt;b&gt;Audit Log (PostgreSQL)&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#bf360c&#39; style=&#39;font-size:10px&#39;&gt;Immutable trail:&lt;br&gt;ALLOW / BLOCKED&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L3" vertex="1">
+          <mxGeometry x="50" y="410" width="280" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="e_kc_opa" value="Identity + Context" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e65100;strokeWidth=1;fontColor=#e65100;fontSize=10;" parent="L3" source="keycloak" target="opa" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="policies" value="&lt;b style=&quot;font-family:monospace;font-size:11px&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policies&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:10px;color:#4e342e&quot;&gt;is_allowed if {&lt;br&gt;&amp;nbsp;&amp;nbsp;user_has_role(&quot;DevOps&quot;)&lt;br&gt;&amp;nbsp;&amp;nbsp;context.binary == &quot;kubectl&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;context.action == &quot;get&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;context.namespace == &quot;dev&quot;&lt;br&gt;}&lt;br&gt;&lt;br&gt;&lt;b style=&quot;color:#2e7d32&quot;&gt;→ allow: true&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#bf360c;strokeWidth=1;dashed=1;fontColor=#1a1a2e;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" vertex="1" parent="L3">
+          <mxGeometry x="50" y="220" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="L4" value="Layer 4 — Target Infra Layer" style="swimlane;startSize=30;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontColor=#1b5e20;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="610" width="560" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="k8s" value="&lt;b&gt;Kubernetes Cluster&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#1b5e20&#39; style=&#39;font-size:10px&#39;&gt;kubectl, helm...&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#1b5e20;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" parent="L4" vertex="1">
+          <mxGeometry x="25" y="65" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="terraform" value="&lt;b&gt;Terraform&lt;/b&gt;&lt;br&gt;&lt;font color=&#39;#1b5e20&#39; style=&#39;font-size:10px&#39;&gt;IaC, cloud resources...&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#1b5e20;strokeWidth=2;fontColor=#1a1a2e;fontSize=11;" vertex="1" parent="L4">
+          <mxGeometry x="200" y="65" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="etc" value="&lt;b&gt;ETC...&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#1b5e20&quot; style=&quot;font-size: 10px;&quot;&gt;qualquer ferramenta&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#1b5e20;strokeWidth=2;dashed=1;fontColor=#1a1a2e;fontSize=11;" vertex="1" parent="L4">
+          <mxGeometry x="375" y="65" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agent_intent" value="MCP Call + JWT Token" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7b1fa2;strokeWidth=2;fontColor=#7b1fa2;fontSize=10;fontStyle=1;" parent="1" source="agent" target="intent" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="207" />
+              <mxPoint x="150" y="207" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pW5HmWdwUHuvBodF2pZE-3" value="kubectl get pods -n dev" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="e_agent_intent">
+          <mxGeometry x="-0.312" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_deny" value="&lt;b&gt;✗ DENY&amp;nbsp;&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c62828;strokeWidth=2;dashed=1;fontColor=#c62828;fontSize=11;fontStyle=1;endArrow=block;endFill=1;entryX=0.816;entryY=1.048;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="opa" target="agent" edge="1">
+          <mxGeometry x="-0.4897" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="463" />
+              <mxPoint x="650" y="430" />
+              <mxPoint x="380" y="430" />
+            </Array>
+            <mxPoint x="380" y="312" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_exec_k8s" value="validated command" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2e7d32;strokeWidth=2;fontColor=#2e7d32;fontSize=10;fontStyle=1;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="472" as="sourcePoint" />
+            <mxPoint x="300" y="608" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_return" value="&lt;b&gt;Response&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2e7d32;strokeWidth=2;dashed=1;fontColor=#2e7d32;fontSize=10;fontStyle=1;endArrow=block;endFill=1;" edge="1" parent="1" source="exec" target="agent">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="320" />
+              <mxPoint x="310" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
