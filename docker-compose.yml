@@ -1,7 +1,7 @@
 services:
   execution-layer:
     build: 
-      context: ./02-execution-layer
+      context: ./execution-layer
       dockerfile: Dockerfile
     container_name: execution-layer
     ports:
@@ -14,7 +14,7 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@audit-db:5432/audit_db
       - KUBECONFIG=/root/.kube/config
     volumes:
-      - ./02-execution-layer:/usr/src/app
+      - ./execution-layer:/usr/src/app
       - /usr/src/app/node_modules
       - ./kube/config:/root/.kube/config:ro # Mount local kubeconfig adjusted for Docker
     extra_hosts:
@@ -41,7 +41,7 @@ services:
     ports:
       - "8085:8080"
     volumes:
-      - ./03-governance/keycloak/realm-export.json:/opt/keycloak/data/import/realm.json
+      - ./governance/keycloak/realm-export.json:/opt/keycloak/data/import/realm.json
     depends_on:
       - audit-db
     networks:
@@ -54,7 +54,7 @@ services:
     ports:
       - "8185:8181"
     volumes:
-      - ./03-governance/opa/policies:/policies
+      - ./governance/opa/policies:/policies
     networks:
       - wolf_network
 
@@ -68,7 +68,7 @@ services:
     ports:
       - "5435:5432"
     volumes:
-      - ./03-governance/postgres/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./governance/postgres/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
     networks:
       - wolf_network
 
